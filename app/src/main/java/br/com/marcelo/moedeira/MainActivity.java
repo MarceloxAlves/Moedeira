@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost/formcidadaos/rest.php?class=JogosArcadeService&method=subtotal")
+                .baseUrl("http://192.168.0.101/formcidadaos/rest.php?class=JogosArcadeService&method=subtotal")
                 .build();
     }
 }
