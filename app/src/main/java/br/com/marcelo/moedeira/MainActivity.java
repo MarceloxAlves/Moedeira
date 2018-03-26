@@ -5,22 +5,27 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import br.com.marcelo.moedeira.API.MoedeiroService;
+import br.com.marcelo.moedeira.infra.APIService;
+import br.com.marcelo.moedeira.infra.Retrofitable;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements Retrofitable {
     TextView result;
     MoedeiroService services;
+    APIService apiService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         result = findViewById(R.id.result);
+        apiService = new APIService();
 
     }
 
@@ -28,14 +33,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.106/formcidadaos/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        services = retrofit.create(MoedeiroService.class);
-
-
+        services = apiService.getMoedaService();
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
@@ -67,5 +66,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onRetrofitResponse(int status, List dados) {
 
+    }
+
+    @Override
+    public void onRetrofitFailure(Throwable t) {
+
+    }
 }
