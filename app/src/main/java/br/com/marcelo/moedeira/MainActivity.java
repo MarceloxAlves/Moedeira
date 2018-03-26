@@ -2,12 +2,8 @@ package br.com.marcelo.moedeira;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
 
 import br.com.marcelo.moedeira.API.MoedeiroService;
 import retrofit2.Call;
