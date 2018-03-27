@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:icon="@drawable/news_icon"
+            android:title="Noticias"
+            android:id="@+id/noticias"/>
+        <item
+            android:icon="@drawable/project_icon"
+            android:title="projetos"
+            android:id="@+id/projetos"/>
+        <item
+            android:icon="@drawable/artigo_icon"
+            android:title="Artigos"
+            android:id="@+id/artigos"/>
+    </group>
+
+</menu>
