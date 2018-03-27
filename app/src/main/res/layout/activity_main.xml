@@ -27,7 +27,7 @@
             android:layout_gravity="center|top"
             android:text="Arrecadação em R$"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:textAlignment="center"
             app:layout_anchor="@+id/imageView"
             app:layout_anchorGravity="top|center" />
