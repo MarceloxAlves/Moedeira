@@ -29,6 +29,9 @@ public class Noticia {
         this.autor = autor;
     }
 
+    public Noticia() {
+    }
+
     public String getTitulo() {
         return titulo;
     }

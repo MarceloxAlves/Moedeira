@@ -40,11 +40,45 @@
         <TextView
             android:id="@+id/jogo_descricao_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="110dp"
             android:layout_below="@+id/nome_jogo_text"
             android:layout_marginTop="20dp"
             android:layout_marginStart="12dp"
             android:text="exemplo text" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="3"
+            android:id="@+id/linear_layout_jogos_holder"
+            android:layout_height="match_parent"
+            android:layout_below="@id/jogo_descricao_text"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:id="@+id/deslike_jogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/deslike_icon" />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:id="@+id/share_jogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/share_icon" />
+
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:id="@+id/like_jogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/like_icon" />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 
