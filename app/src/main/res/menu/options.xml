@@ -16,6 +16,12 @@
             android:icon="@drawable/artigo_icon"
             android:title="Artigos"
             android:id="@+id/artigos"/>
+        <item
+            android:title="Jogos"
+            android:id="@+id/jogos"
+            android:icon="@drawable/games_icon"
+
+            />
     </group>
 
 </menu>

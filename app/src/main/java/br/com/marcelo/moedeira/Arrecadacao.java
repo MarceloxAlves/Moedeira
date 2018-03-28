@@ -21,8 +21,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MainActivity extends AppCompatActivity implements Retrofitable, NavigationView.OnNavigationItemSelectedListener {
-    TextView result;
+public class Arrecadacao extends AppCompatActivity implements Retrofitable, NavigationView.OnNavigationItemSelectedListener {
+    TextView result, username, email;
     MoedeiroService services;
     APIService apiService;
     private DrawerLayout mDrawerLayout;
@@ -31,17 +31,13 @@ public class MainActivity extends AppCompatActivity implements Retrofitable, Nav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_arrecadacao);
 
-        result = findViewById(R.id.result);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        mNavigationView = findViewById(R.id.navigation_view);
         apiService = new APIService();
-
         setupDrawer();
+        setupViews();
 
     }
-
 
     @Override
     protected void onResume() {
@@ -65,16 +61,17 @@ public class MainActivity extends AppCompatActivity implements Retrofitable, Nav
                                         }
 
                                     }
-
+                                    
                                     @Override
                                     public void onFailure(Call<Moeda> call, Throwable t) {
-                                        Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Arrecadacao.this, t.getMessage(), Toast.LENGTH_LONG).show();
                                     }
                                 }
                         );
                     }
                 },
                 3000);
+
 
     }
 
@@ -83,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements Retrofitable, Nav
     public void onRetrofitResponse(int status, List dados) {
 
     }
+
 
     @Override
     public void onRetrofitFailure(Throwable t) {
@@ -114,5 +112,13 @@ public class MainActivity extends AppCompatActivity implements Retrofitable, Nav
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mNavigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void setupViews() {
+        result = findViewById(R.id.result);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mNavigationView = findViewById(R.id.navigation_view);
+        username = mNavigationView.getHeaderView(0).findViewById(R.id.username);
+        email = mNavigationView.getHeaderView(0).findViewById(R.id.email);
     }
 }
