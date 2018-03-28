@@ -9,24 +9,49 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.marcelo.moedeira.API.MoedeiroService;
 import br.com.marcelo.moedeira.R;
 import br.com.marcelo.moedeira.adapters.NoticiasAdapter;
+import br.com.marcelo.moedeira.infra.APIService;
 import br.com.marcelo.moedeira.model.Noticia;
+import br.com.marcelo.moedeira.model.Service;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NoticiasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Noticia> listNoticia = new ArrayList<>();
+    APIService apiService;
+    MoedeiroService moedeiroService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_noticias);
         setupViews();
 
+        apiService = new APIService();
+        moedeiroService = apiService.getMoedaService();
+        
         NoticiasAdapter adapter = new NoticiasAdapter(listNoticia, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
+
+
+         Call<Service> noticias = moedeiroService.getNoticias();
+         noticias.enqueue(new Callback<Service>() {
+             @Override
+             public void onResponse(Call<Service> call, Response<Service> response) {
+                 Toast.makeText(NoticiasActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+             }
+
+             @Override
+             public void onFailure(Call<Service> call, Throwable t) {
+                 Toast.makeText(NoticiasActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+             }
+         });
 
     }
 

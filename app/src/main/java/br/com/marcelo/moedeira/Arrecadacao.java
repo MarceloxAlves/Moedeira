@@ -94,8 +94,7 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.noticias){
-            startActivity(new Intent(this,NoticiasActivity.class));
-            finish();
+            startActivity(new Intent(this, NoticiasActivity.class));
         }
         return false;
     }

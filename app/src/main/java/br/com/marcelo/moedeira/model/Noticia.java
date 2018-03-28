@@ -1,23 +1,35 @@
 package br.com.marcelo.moedeira.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by jesus on 27/03/2018.
  */
 
 public class Noticia {
 
+    @SerializedName("titulo")
     private String titulo;
+    @SerializedName("resumo")
     private String resumo;
+    @SerializedName("autor")
     private String autor;
-    private String imagem;
-    private String data;
+    @SerializedName("data_inc")
+    private Date dateInc;
 
-    public Noticia(String titulo, String resumo, String imagem, String autor, String data) {
+    private String imagem;
+
+    @SerializedName("data")
+    private List<Noticia> data;
+
+    public Noticia(String titulo, String resumo, String imagem, String autor) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.imagem = imagem;
         this.autor = autor;
-        this.data = data;
     }
 
     public String getTitulo() {
@@ -52,11 +64,4 @@ public class Noticia {
         this.autor = autor;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 }
