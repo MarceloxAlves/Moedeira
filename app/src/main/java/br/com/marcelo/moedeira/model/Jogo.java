@@ -5,15 +5,20 @@ package br.com.marcelo.moedeira.model;
  */
 
 public class Jogo {
-    int id;
-    double arrecadacao;
-    String nome, imagem, autor;
+    private int id;
+    private double arrecadacao;
+    private String nome;
+    private String imagem;
+    private String autor;
+    private int avaliacao;
 
-    public Jogo(int id, double arrecadacao, String nome, String imagem) {
+    public Jogo(int id, double arrecadacao, String nome, String imagem, String autor, int avaliacao) {
         this.id = id;
         this.arrecadacao = arrecadacao;
         this.nome = nome;
         this.imagem = imagem;
+        this.autor = autor;
+        this.avaliacao = avaliacao;
     }
 
     public int getId() {
@@ -46,5 +51,21 @@ public class Jogo {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public int getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(int avaliacao) {
+        this.avaliacao = avaliacao;
     }
 }

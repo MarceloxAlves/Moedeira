@@ -15,6 +15,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import br.com.marcelo.moedeira.API.MoedeiroService;
+import br.com.marcelo.moedeira.app.NoticiasActivity;
 import br.com.marcelo.moedeira.infra.APIService;
 import br.com.marcelo.moedeira.infra.Retrofitable;
 import br.com.marcelo.moedeira.model.Moeda;

@@ -1,4 +1,4 @@
-package br.com.marcelo.moedeira;
+package br.com.marcelo.moedeira.app;
 
 import android.content.Context;
 import android.os.Bundle;

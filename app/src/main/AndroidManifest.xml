@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".infra.NoticiasActivity" />
-        <activity android:name=".NoticiasActivity"></activity>
+        <activity
+            android:name=".app.NoticiasActivity"
+            android:label="Noticias"></activity>
+        <activity android:name=".app.JogosActivity"></activity>
     </application>
 
 </manifest>
