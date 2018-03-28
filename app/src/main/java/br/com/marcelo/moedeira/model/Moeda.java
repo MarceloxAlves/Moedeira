@@ -1,4 +1,4 @@
-package br.com.marcelo.moedeira;
+package br.com.marcelo.moedeira.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -8,9 +8,9 @@ import java.util.Map;
 public class Moeda {
 
     @SerializedName("status")
-    String status;
+   public  String status;
 
     @SerializedName("data")
-    Map<Object,Object> data;
+   public  Map<Object,Object> data;
 
 }

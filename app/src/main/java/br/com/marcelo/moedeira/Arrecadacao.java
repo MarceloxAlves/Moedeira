@@ -17,6 +17,7 @@ import java.util.List;
 import br.com.marcelo.moedeira.API.MoedeiroService;
 import br.com.marcelo.moedeira.infra.APIService;
 import br.com.marcelo.moedeira.infra.Retrofitable;
+import br.com.marcelo.moedeira.model.Moeda;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

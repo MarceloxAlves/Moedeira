@@ -5,7 +5,12 @@ package br.com.marcelo.moedeira.model;
  */
 
 public class Noticia {
-    private String titulo, resumo,autor, imagem, data;
+
+    private String titulo;
+    private String resumo;
+    private String autor;
+    private String imagem;
+    private String data;
 
     public Noticia(String titulo, String resumo, String imagem, String autor, String data) {
         this.titulo = titulo;
