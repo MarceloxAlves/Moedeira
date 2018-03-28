@@ -9,14 +9,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import br.com.marcelo.moedeira.R;
+import br.com.marcelo.moedeira.model.Projeto;
 
 public class ProjetosRVAdapter extends RecyclerView.Adapter<ProjetosRVAdapter.ViewHolder> {
 
     private Context context;
-    private String img;
-    private String titulo;
-    private String descricao;
+    private List<Projeto> projetos;
+
+    public ProjetosRVAdapter(Context context, List<Projeto> projetos) {
+        this.context = context;
+        this.projetos = projetos;
+    }
 
     @NonNull
     @Override
@@ -30,11 +36,16 @@ public class ProjetosRVAdapter extends RecyclerView.Adapter<ProjetosRVAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
 
+        final Projeto projeto = projetos.get(position);
+
+        holder.textViewTitulo.setText(projeto.getNome());
+        holder.textViewDescricao.setText(projeto.getDescricao());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return projetos.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
