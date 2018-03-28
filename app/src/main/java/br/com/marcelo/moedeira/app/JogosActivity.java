@@ -24,12 +24,6 @@ public class JogosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_jogos);
         setupViews();
 
-        for(int i = 0; i < 5; i++){
-            Jogo p = new Jogo();
-            p.setNome("Titulo " + i);
-            p.setDescricao("Descrição " + i);
-            jogoList.add(p);
-        }
 
         JogosAdapter adapter = new JogosAdapter(jogoList,this);
         recyclerView.setAdapter(adapter);
