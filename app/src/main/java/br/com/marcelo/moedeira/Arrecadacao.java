@@ -1,5 +1,6 @@
 package br.com.marcelo.moedeira;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -34,8 +35,8 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
         setContentView(R.layout.activity_arrecadacao);
 
         apiService = new APIService();
-        setupDrawer();
         setupViews();
+        setupDrawer();
 
     }
 
@@ -89,6 +90,11 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.noticias){
+            startActivity(new Intent(this,NoticiasActivity.class));
+            finish();
+        }
         return false;
     }
 

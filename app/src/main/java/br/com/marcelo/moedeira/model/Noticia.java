@@ -5,13 +5,14 @@ package br.com.marcelo.moedeira.model;
  */
 
 public class Noticia {
-    private String titulo, resumo,autor, imagem;
+    private String titulo, resumo,autor, imagem, data;
 
-    public Noticia(String titulo, String resumo, String imagem, String autor) {
+    public Noticia(String titulo, String resumo, String imagem, String autor, String data) {
         this.titulo = titulo;
         this.resumo = resumo;
         this.imagem = imagem;
         this.autor = autor;
+        this.data = data;
     }
 
     public String getTitulo() {
@@ -44,5 +45,13 @@ public class Noticia {
 
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 }
