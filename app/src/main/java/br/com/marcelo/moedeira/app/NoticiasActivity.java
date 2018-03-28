@@ -44,7 +44,8 @@ public class NoticiasActivity extends AppCompatActivity {
          noticias.enqueue(new Callback<Service>() {
              @Override
              public void onResponse(Call<Service> call, Response<Service> response) {
-                 Toast.makeText(NoticiasActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                 List<Noticia> data = response.body().data;
+                 Toast.makeText(NoticiasActivity.this,"Tamanho: " + data.size() , Toast.LENGTH_SHORT).show();
              }
 
              @Override

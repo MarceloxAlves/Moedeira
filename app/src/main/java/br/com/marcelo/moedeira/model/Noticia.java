@@ -22,9 +22,6 @@ public class Noticia {
 
     private String imagem;
 
-    @SerializedName("data")
-    private List<Noticia> data;
-
     public Noticia(String titulo, String resumo, String imagem, String autor) {
         this.titulo = titulo;
         this.resumo = resumo;
