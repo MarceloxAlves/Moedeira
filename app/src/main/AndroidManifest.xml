@@ -24,8 +24,9 @@
             android:parentActivityName=".Arrecadacao" />
         <activity
             android:name=".app.JogosActivity"
-            android:parentActivityName=".Arrecadacao"></activity>
-        <activity android:name=".app.CursoActivity"></activity>
+            android:parentActivityName=".Arrecadacao" />
+        <activity android:name=".app.CursoActivity" />
+        <activity android:name=".app.ArtigosActivity"></activity>
     </application>
 
 </manifest>

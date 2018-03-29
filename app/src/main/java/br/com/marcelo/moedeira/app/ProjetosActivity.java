@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.marcelo.moedeira.R;
-import br.com.marcelo.moedeira.adapters.ProjetosRVAdapter;
+import br.com.marcelo.moedeira.adapters.ProjetosAdapter;
 import br.com.marcelo.moedeira.model.Projeto;
 
-public class ProjetosRVActivity extends AppCompatActivity {
+public class ProjetosActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Context context = this;
-    private ProjetosRVAdapter adapter;
+    private ProjetosAdapter projetosAdapter;
     private List<Projeto> projetos = new ArrayList<>();
 
     @Override
@@ -33,6 +33,7 @@ public class ProjetosRVActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        //Teste para fazer uma lista para testar o adapter
         for(int i = 0; i < 5; i++){
             Projeto p = new Projeto();
             p.setNome("Titulo " + i);
@@ -40,9 +41,9 @@ public class ProjetosRVActivity extends AppCompatActivity {
             projetos.add(p);
         }
 
-        adapter = new ProjetosRVAdapter(context,projetos);
+        projetosAdapter = new ProjetosAdapter(context,projetos);
 
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(projetosAdapter);
     }
 
 
