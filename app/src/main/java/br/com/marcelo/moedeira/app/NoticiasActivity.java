@@ -34,6 +34,13 @@ public class NoticiasActivity extends AppCompatActivity {
         apiService = new APIService();
         moedeiroService = apiService.getMoedaService();
 
+        for(int i = 0; i < 5; i++){
+            Noticia p = new Noticia();
+            p.setTitulo("Titulo " + i);
+            p.setResumo("Descrição " + i);
+            listNoticia.add(p);
+        }
+
         NoticiasAdapter adapter = new NoticiasAdapter(listNoticia, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

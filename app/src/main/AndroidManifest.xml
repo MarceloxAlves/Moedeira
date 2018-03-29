@@ -20,8 +20,12 @@
         </activity>
         <activity
             android:name=".app.NoticiasActivity"
-            android:label="Noticias"></activity>
-        <activity android:name=".app.JogosActivity"></activity>
+            android:label="Noticias"
+            android:parentActivityName=".Arrecadacao" />
+        <activity
+            android:name=".app.JogosActivity"
+            android:parentActivityName=".Arrecadacao"></activity>
+        <activity android:name=".app.CursoActivity"></activity>
     </application>
 
 </manifest>

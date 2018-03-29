@@ -6,7 +6,7 @@
     android:layout_height="400dp"
     android:padding="8dp"
     android:clickable="true"
-    android:layout_marginTop="4dp"
+    android:layout_marginTop="10dp"
     app:cardElevation="8dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/jogo_icon"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="190dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true" />
 
@@ -53,15 +53,18 @@
             android:layout_below="@id/jogo_descricao_text"
             android:orientation="horizontal">
 
-            <ImageView
+            <ImageButton
+                android:backgroundTint="@color/whiteColor"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:id="@+id/deslike_jogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/deslike_icon" />
+                android:src="@drawable/deslike_icon"
+                />
 
-            <ImageView
+            <ImageButton
+                android:backgroundTint="@color/whiteColor"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:id="@+id/share_jogo"
@@ -69,7 +72,10 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/share_icon" />
 
-            <ImageView
+            <ImageButton
+                android:backgroundTint="@color/whiteColor"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:id="@+id/like_jogo"

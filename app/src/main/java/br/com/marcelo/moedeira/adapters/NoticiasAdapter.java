@@ -32,7 +32,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     public NoticiasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final LayoutInflater inflater = LayoutInflater.from(context);
 
-        View linha = inflater.inflate(R.layout.layout_view_holder_noticia, parent, false);
+        View linha = inflater.inflate(R.layout.layout_view_holder_noticia_show, parent, false);
 
         return new NoticiasViewHolder(linha) ;
     }
@@ -41,7 +41,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     public void onBindViewHolder(NoticiasViewHolder holder, int position) {
         Noticia noticia = listNoticias.get(position);
 
-        holder.mResumo.setText(noticia.getResumo());
+        holder.mDesc.setText(noticia.getResumo());
         holder.mTituto.setText(noticia.getTitulo());
 
     }
@@ -53,12 +53,12 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
 
     public class NoticiasViewHolder extends RecyclerView.ViewHolder{
         ImageView mNoticiaImage;
-        TextView mTituto, mResumo;
+        TextView mTituto, mDesc;
         public NoticiasViewHolder(View itemView) {
             super(itemView);
-            mNoticiaImage = itemView.findViewById(R.id.noticia_icon);
-            mTituto = itemView.findViewById(R.id.titulo_text);
-            mResumo = itemView.findViewById(R.id.resumo_text);
+            mNoticiaImage = itemView.findViewById(R.id.image_noticia_background);
+            mTituto = itemView.findViewById(R.id.titulo_noticia);
+            mDesc = itemView.findViewById(R.id.desc_noticia);
         }
     }
 
