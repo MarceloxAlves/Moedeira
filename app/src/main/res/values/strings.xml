@@ -2,4 +2,6 @@
     <string name="app_name">Formando Cidadão</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="titulo">Titulo</string>
+    <string name="exemplo_text">Lorem ipsum orci justo aliquet etiam, tellus laoreet quisque lacinia.</string>
 </resources>

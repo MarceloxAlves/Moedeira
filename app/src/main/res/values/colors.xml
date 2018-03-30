@@ -7,4 +7,5 @@
     <color name="orangeColor">#FF4500</color>
     <color name="blackColor">#000000</color>
     <color name="blackColor2">#a9000000</color>
+    <color name="transparente">#36000000</color>
 </resources>

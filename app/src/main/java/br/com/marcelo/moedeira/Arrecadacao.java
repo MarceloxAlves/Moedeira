@@ -15,8 +15,11 @@ import android.widget.Toast;
 import java.util.List;
 
 import br.com.marcelo.moedeira.API.MoedeiroService;
+import br.com.marcelo.moedeira.app.ArtigosActivity;
+import br.com.marcelo.moedeira.app.CursoActivity;
 import br.com.marcelo.moedeira.app.JogosActivity;
 import br.com.marcelo.moedeira.app.NoticiasActivity;
+import br.com.marcelo.moedeira.app.ProjetosActivity;
 import br.com.marcelo.moedeira.infra.APIService;
 import br.com.marcelo.moedeira.infra.Retrofitable;
 import br.com.marcelo.moedeira.model.Moeda;
@@ -94,10 +97,22 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.noticias){
-            startActivity(new Intent(this, NoticiasActivity.class));
-        }else if(id == R.id.jogos){
-            startActivity(new Intent(this, JogosActivity.class));
+        switch (id){
+            case R.id.noticias:
+                startActivity(new Intent(this, NoticiasActivity.class));
+                break;
+            case R.id.jogos:
+                startActivity(new Intent(this, JogosActivity.class));
+                break;
+            case R.id.artigos:
+                startActivity(new Intent(this, ArtigosActivity.class));
+                break;
+            case R.id.projetos:
+                startActivity(new Intent(this, ProjetosActivity.class));
+                break;
+            case R.id.cursos:
+                startActivity(new Intent(this, CursoActivity.class));
+                break;
         }
         return false;
     }

@@ -16,7 +16,6 @@ import br.com.marcelo.moedeira.model.Artigo;
 public class ArtigosActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Context context = this;
     private ArtigosAdapter artigosAdapter;
     private List<Artigo> artigos = new ArrayList<>();
 
@@ -42,7 +41,7 @@ public class ArtigosActivity extends AppCompatActivity {
             artigos.add(artigo);
         }
 
-        artigosAdapter = new ArtigosAdapter(context,artigos);
+        artigosAdapter = new ArtigosAdapter(this,artigos);
 
         recyclerView.setAdapter(artigosAdapter);
     }

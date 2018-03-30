@@ -20,8 +20,11 @@
             android:title="Jogos"
             android:id="@+id/jogos"
             android:icon="@drawable/games_icon"
-
             />
+        <item
+            android:title="Cursos"
+            android:id="@+id/cursos"
+            android:icon="@drawable/cursos_icon"/>
     </group>
 
 </menu>
