@@ -1,5 +1,7 @@
 package br.com.marcelo.moedeira.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.Date;
 
 /**
@@ -8,13 +10,21 @@ import java.util.Date;
 
 public class Artigo {
 
+    @SerializedName("idartigo_(Primária)")
     private int idArtigo;
+    @SerializedName("titulo")
     private String titulo;
+    @SerializedName("resumo")
     private String resumo;
+    @SerializedName("abstract")
     private String abstrato;
+    @SerializedName("arquivo")
     private String arquivo;
+    @SerializedName("autor")
     private String autor;
+    @SerializedName("ano")
     private int ano;
+    @SerializedName("data_create")
     private Date dateCreate;
 
     public int getIdArtigo() {

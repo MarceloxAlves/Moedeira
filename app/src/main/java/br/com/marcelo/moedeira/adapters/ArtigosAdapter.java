@@ -41,8 +41,6 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.ViewHold
         holder.textViewTitulo.setText(artigo.getTitulo());
         holder.textViewResumo.setText(artigo.getResumo());
         holder.textViewAutor.setText(artigo.getAutor());
-        holder.textViewAno.setText(artigo.getAno());
-        holder.textViewData.setText(artigo.getDateCreate().toString());
 
     }
 
@@ -56,7 +54,6 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.ViewHold
         public TextView textViewTitulo;
         public TextView textViewResumo;
         public TextView textViewAutor;
-        public TextView textViewAno;
         public TextView textViewData;
 
 
@@ -66,7 +63,6 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.ViewHold
             textViewTitulo = itemView.findViewById(R.id.text_titulo);
             textViewResumo = itemView.findViewById(R.id.text_resumo);
             textViewAutor = itemView.findViewById(R.id.text_autor);
-            textViewAno = itemView.findViewById(R.id.text_ano);
             textViewData = itemView.findViewById(R.id.text_data);
 
 

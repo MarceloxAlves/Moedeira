@@ -26,7 +26,12 @@
             android:name=".app.JogosActivity"
             android:parentActivityName=".Arrecadacao" />
         <activity android:name=".app.CursoActivity" />
-        <activity android:name=".app.ArtigosActivity"></activity>
+        <activity
+            android:name=".app.ArtigosActivity"
+            android:parentActivityName=".Arrecadacao"/>
+        <activity
+            android:name=".app.ProjetosActivity"
+            android:parentActivityName=".Arrecadacao"/>
     </application>
 
 </manifest>
