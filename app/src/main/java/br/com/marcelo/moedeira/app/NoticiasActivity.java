@@ -1,5 +1,6 @@
 package br.com.marcelo.moedeira.app;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,8 +24,12 @@ public class NoticiasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Noticia> listNoticia = new ArrayList<>();
+
     APIService apiService;
     MoedeiroService moedeiroService;
+    NoticiasAdapter adapterNoticias;
+    Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,18 +46,15 @@ public class NoticiasActivity extends AppCompatActivity {
             listNoticia.add(p);
         }
 
-        NoticiasAdapter adapter = new NoticiasAdapter(listNoticia, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-
-
          Call<Service> noticias = moedeiroService.getNoticias();
          noticias.enqueue(new Callback<Service>() {
              @Override
              public void onResponse(Call<Service> call, Response<Service> response) {
                  List<Noticia> data = response.body().data;
-                 Toast.makeText(NoticiasActivity.this,"Tamanho: " + data.size() , Toast.LENGTH_SHORT).show();
+                 adapterNoticias = new NoticiasAdapter(data,context);
+                 recyclerView.setAdapter(adapterNoticias);
+                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                 recyclerView.setHasFixedSize(true);
              }
 
              @Override

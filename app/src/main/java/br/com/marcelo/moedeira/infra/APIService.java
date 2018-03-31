@@ -39,6 +39,8 @@ public class APIService {
 
     }
 
+    public static String getUrlBase(){return APIService.BASE_URL;}
+
 
     public MoedeiroService getMoedaService(){
        return moedeiroService;

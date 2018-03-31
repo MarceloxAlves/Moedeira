@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Noticia {
 
+    @SerializedName("idnoticia")
+    private long Id;
     @SerializedName("titulo")
     private String titulo;
     @SerializedName("resumo")
@@ -30,6 +32,14 @@ public class Noticia {
     }
 
     public Noticia() {
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public void setId(long id) {
+        Id = id;
     }
 
     public String getTitulo() {
