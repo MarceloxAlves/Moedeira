@@ -21,7 +21,7 @@ public class Noticia {
     private String autor;
     @SerializedName("data_inc")
     private Date dateInc;
-
+    @SerializedName("imagem")
     private String imagem;
 
     private boolean favorito;
@@ -85,5 +85,13 @@ public class Noticia {
 
     public void setFavorito(boolean favorito) {
         this.favorito = favorito;
+    }
+
+    public Date getDateInc() {
+        return dateInc;
+    }
+
+    public void setDateInc(Date dateInc) {
+        this.dateInc = dateInc;
     }
 }

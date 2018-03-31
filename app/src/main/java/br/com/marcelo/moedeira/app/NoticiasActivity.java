@@ -1,5 +1,6 @@
 package br.com.marcelo.moedeira.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -25,10 +27,12 @@ import retrofit2.Response;
 public class NoticiasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<Noticia> listNoticia = new ArrayList<>();
     APIService apiService;
     private SwipeRefreshLayout swipeRefreshLayout;
     MoedeiroService moedeiroService;
+    NoticiasAdapter adapterNoticias;
+    Context context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,48 +40,37 @@ public class NoticiasActivity extends AppCompatActivity {
         setupViews();
 
         apiService = new APIService();
-        moedeiroService = apiService.getMoedaService();
 
-        for(int i = 0; i < 5; i++){
-            Noticia p = new Noticia();
-            p.setTitulo("Titulo " + i);
-            p.setResumo("Descrição " + i);
-            listNoticia.add(p);
-        }
+         updateNews();
 
-        NoticiasAdapter adapter = new NoticiasAdapter(listNoticia, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+               updateNews();
+                swipeRefreshLayout.setRefreshing(false);
 
+        });
 
-         Call<Service> noticias = moedeiroService.getNoticias();
-         noticias.enqueue(new Callback<Service>() {
-             @Override
-             public void onResponse(Call<Service> call, Response<Service> response) {
-                 List<Noticia> data = response.body().data;
-                 Toast.makeText(NoticiasActivity.this,"Tamanho: " + data.size() , Toast.LENGTH_SHORT).show();
-             }
-
-             @Override
-             public void onFailure(Call<Service> call, Throwable t) {
-                 Toast.makeText(NoticiasActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-             }
-         });
-
-         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
-
-             @Override
-             public void onRefresh() {
-                 print();
-             }
-         });
-
-    }public void print(){
-        Toast.makeText(this,"deu bom",Toast.LENGTH_SHORT).show();
     }
 
 
+    private void updateNews() {
+        moedeiroService = apiService.getMoedaService();
+        Call<Service> noticias = moedeiroService.getNoticias();
+        noticias.enqueue(new Callback<Service>() {
+            @Override
+            public void onResponse(Call<Service> call, Response<Service> response) {
+                List<Noticia> data = response.body().data;
+                 adapterNoticias = new NoticiasAdapter(data, context);
+                recyclerView.setAdapter(adapterNoticias);
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                recyclerView.setHasFixedSize(true);
+            }
+
+            @Override
+            public void onFailure(Call<Service> call, Throwable t) {
+                Toast.makeText(NoticiasActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void setupViews() {
         recyclerView = findViewById(R.id.rv_noticias);
