@@ -28,13 +28,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Arrecadacao extends AppCompatActivity implements Retrofitable, NavigationView.OnNavigationItemSelectedListener {
-    TextView result, username, email;
+public class Arrecadacao extends AppCompatActivity implements Retrofitable {
+    TextView result;
     MoedeiroService services;
     APIService apiService;
-    private DrawerLayout mDrawerLayout;
-    private NavigationView mNavigationView;
-    private ActionBarDrawerToggle toggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +39,6 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
 
         apiService = new APIService();
         setupViews();
-        setupDrawer();
 
     }
 
@@ -94,56 +90,9 @@ public class Arrecadacao extends AppCompatActivity implements Retrofitable, Navi
 
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        switch (id){
-            case R.id.noticias:
-                startActivity(new Intent(this, NoticiasActivity.class));
-                break;
-            case R.id.jogos:
-                startActivity(new Intent(this, JogosActivity.class));
-                break;
-            case R.id.artigos:
-                startActivity(new Intent(this, ArtigosActivity.class));
-                break;
-            case R.id.projetos:
-                startActivity(new Intent(this, ProjetosActivity.class));
-                break;
-            case R.id.cursos:
-                startActivity(new Intent(this, CursoActivity.class));
-                break;
-        }
-        return false;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)){
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onMenuOpened(int featureId, Menu menu) {
-        return super.onMenuOpened(featureId, menu);
-    }
-
-    private void setupDrawer() {
-        toggle = new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mNavigationView.setNavigationItemSelectedListener(this);
-    }
 
     private void setupViews() {
         result = findViewById(R.id.result);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        mNavigationView = findViewById(R.id.navigation_view);
-        username = mNavigationView.getHeaderView(0).findViewById(R.id.username);
-        email = mNavigationView.getHeaderView(0).findViewById(R.id.email);
     }
 }

@@ -1,6 +1,8 @@
 package br.com.marcelo.moedeira.app;
 
-import android.content.Context;
+import android.content.Intent;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,12 +26,9 @@ public class NoticiasActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Noticia> listNoticia = new ArrayList<>();
-
     APIService apiService;
+    private SwipeRefreshLayout swipeRefreshLayout;
     MoedeiroService moedeiroService;
-    NoticiasAdapter adapterNoticias;
-    Context context = this;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,15 +45,18 @@ public class NoticiasActivity extends AppCompatActivity {
             listNoticia.add(p);
         }
 
+        NoticiasAdapter adapter = new NoticiasAdapter(listNoticia, this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+
          Call<Service> noticias = moedeiroService.getNoticias();
          noticias.enqueue(new Callback<Service>() {
              @Override
              public void onResponse(Call<Service> call, Response<Service> response) {
                  List<Noticia> data = response.body().data;
-                 adapterNoticias = new NoticiasAdapter(data,context);
-                 recyclerView.setAdapter(adapterNoticias);
-                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                 recyclerView.setHasFixedSize(true);
+                 Toast.makeText(NoticiasActivity.this,"Tamanho: " + data.size() , Toast.LENGTH_SHORT).show();
              }
 
              @Override
@@ -63,9 +65,22 @@ public class NoticiasActivity extends AppCompatActivity {
              }
          });
 
+         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+
+             @Override
+             public void onRefresh() {
+                 print();
+             }
+         });
+
+    }public void print(){
+        Toast.makeText(this,"deu bom",Toast.LENGTH_SHORT).show();
     }
+
+
 
     private void setupViews() {
         recyclerView = findViewById(R.id.rv_noticias);
+        swipeRefreshLayout = findViewById(R.id.swipe_layout);
     }
 }

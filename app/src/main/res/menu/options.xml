@@ -25,6 +25,10 @@
             android:title="Cursos"
             android:id="@+id/cursos"
             android:icon="@drawable/cursos_icon"/>
+        <item
+            android:title="arrecadaçao"
+            android:id="@+id/arrecadacao"
+            android:icon="@drawable/arrecadacao_icon"/>
     </group>
 
 </menu>

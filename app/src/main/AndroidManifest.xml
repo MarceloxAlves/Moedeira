@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.NoticiasActivity">
+        <activity android:name=".app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,17 +20,28 @@
         </activity>
         <activity
             android:name=".Arrecadacao"
-            android:label="Arreacadação"/>
+            android:label="Arreacadação"
+            android:parentActivityName=".app.MainActivity" />
         <activity
             android:name=".app.JogosActivity"
-            android:parentActivityName=".Arrecadacao" />
-        <activity android:name=".app.CursoActivity" />
+            android:label="Jogos"
+            android:parentActivityName=".app.MainActivity" />
+        <activity android:name=".app.CursoActivity"
+            android:label="Cursos"
+            android:parentActivityName=".app.MainActivity"  />
         <activity
             android:name=".app.ArtigosActivity"
-            android:parentActivityName=".Arrecadacao"/>
+            android:label="Artigos"
+            android:parentActivityName=".app.MainActivity" />
         <activity
             android:name=".app.ProjetosActivity"
-            android:parentActivityName=".Arrecadacao"/>
+            android:label="Projetos"
+            android:parentActivityName=".app.MainActivity"  />
+        <activity android:name=".app.SobreActivity"
+            android:parentActivityName=".app.MainActivity" />
+        <activity android:name=".app.NoticiasActivity"
+            android:label="Noticias"
+            android:parentActivityName=".app.MainActivity" />
     </application>
 
 </manifest>

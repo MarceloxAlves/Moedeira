@@ -24,14 +24,19 @@ public class Noticia {
 
     private String imagem;
 
-    public Noticia(String titulo, String resumo, String imagem, String autor) {
+    private boolean favorito;
+
+    public Noticia(String titulo, String resumo, String autor, Date dateInc, String imagem, boolean favorito) {
         this.titulo = titulo;
         this.resumo = resumo;
-        this.imagem = imagem;
         this.autor = autor;
+        this.dateInc = dateInc;
+        this.imagem = imagem;
+        this.favorito = favorito;
     }
 
     public Noticia() {
+        this.setFavorito(false);
     }
 
     public long getId() {
@@ -74,4 +79,11 @@ public class Noticia {
         this.autor = autor;
     }
 
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
+    }
 }
