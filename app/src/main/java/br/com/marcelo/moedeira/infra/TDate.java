@@ -1,13 +1,45 @@
 package br.com.marcelo.moedeira.infra;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
  * Created by Marcelo on 31/03/2018.
  */
 
-public class TDate {
+public class TDate extends Date {
+
+
+
+    private static final long serialVersionUID = 1L;
+    private SimpleDateFormat displayFormat = new SimpleDateFormat("dd-MM-yyyy");
+    private SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    public TDate(int year, int month, int day)
+    {
+
+
+    }
+
+    public TDate(long currDate)
+    {
+        super(currDate);
+    }
+
+    public String displayString()
+    {
+        return displayFormat.format(this);
+
+    } // end displayString()
+
+    public String dataString()
+    {
+        return dataFormat.format(this);
+
+    } // end dataString()
+
     //retorna o dia da semana dada uma data
     public String retornarDiaSemana(int ano, int mes, int dia)
     {
@@ -19,7 +51,7 @@ public class TDate {
     }
 
     //faz a pesquisa, dado um inteiro de 1 a 7
-    public String pesquisarDiaSemana(int _diaSemana)
+    private String pesquisarDiaSemana(int _diaSemana)
     {
         String diaSemana = null;
 

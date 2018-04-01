@@ -33,16 +33,7 @@ public class ProjetosActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //Teste para fazer uma lista para testar o adapter
-        for(int i = 0; i < 5; i++){
-            Projeto p = new Projeto();
-            p.setNome("Titulo " + i);
-            p.setDescricao("Descrição " + i);
-            projetos.add(p);
-        }
-
         projetosAdapter = new ProjetosAdapter(context,projetos);
-
         recyclerView.setAdapter(projetosAdapter);
     }
 
