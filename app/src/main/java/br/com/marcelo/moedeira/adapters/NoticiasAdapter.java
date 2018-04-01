@@ -47,8 +47,11 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
         Noticia noticia = listNoticias.get(position);
 
         Picasso.with(context).load(APIService.BASE_URL + noticia.getImagem()).into(holder.mNoticiaImage);
-        holder.mDesc.setText(noticia.getResumo());
-        holder.mTituto.setText(noticia.getTitulo());
+
+        String descricao = noticia.getResumo().length() > 120 ?  noticia.getResumo().substring(0,120) : noticia.getResumo();
+
+        holder.mDesc.setText(descricao);
+        holder.mTitulo.setText(noticia.getTitulo());
         TDate tDate = new TDate(noticia.getDateInc());
         holder.mData.setText(tDate.getDataFormatWeb());
         holder.mShareNoticia.setOnClickListener(v->{
@@ -66,13 +69,13 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
 
     public class NoticiasViewHolder extends RecyclerView.ViewHolder{
         ImageView mNoticiaImage, mShareNoticia;
-        TextView mTituto, mDesc,mData;
+        TextView mTitulo, mDesc,mData;
 
 
         public NoticiasViewHolder(View itemView) {
             super(itemView);
             mNoticiaImage = itemView.findViewById(R.id.image_noticia_background);
-            mTituto = itemView.findViewById(R.id.titulo_noticia);
+            mTitulo = itemView.findViewById(R.id.titulo_noticia);
             mDesc = itemView.findViewById(R.id.desc_noticia);
             mShareNoticia = itemView.findViewById(R.id.share_noticia);
             mData = itemView.findViewById(R.id.data_topo);

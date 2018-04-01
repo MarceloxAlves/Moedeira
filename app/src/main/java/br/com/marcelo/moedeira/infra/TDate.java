@@ -54,7 +54,8 @@ public class TDate{
 
     public String getDataFormatWeb(){
 
-       return  retornarDiaSemana()+", "+ TString.strPad(""+getDia(),'0',2,1)+" de "+ getMesString(getMes());
+       return  retornarDiaSemana()+", "+ TString.strPad(""+getDia(),'0',2,1)+" de "+
+               TString.strFirstUp(getMesString(getMes()));
     }
 
     public String retornarDiaSemana()

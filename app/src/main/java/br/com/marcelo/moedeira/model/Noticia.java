@@ -16,7 +16,7 @@ public class Noticia {
     private long Id;
     @SerializedName("titulo")
     private String titulo;
-    @SerializedName("resumo")
+    @SerializedName("descricao")
     private String resumo;
     @SerializedName("autor")
     private String autor;
