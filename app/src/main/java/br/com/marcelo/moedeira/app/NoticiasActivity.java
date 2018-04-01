@@ -74,6 +74,6 @@ public class NoticiasActivity extends AppCompatActivity {
 
     private void setupViews() {
         recyclerView = findViewById(R.id.rv_noticias);
-        swipeRefreshLayout = findViewById(R.id.swipe_layout);
+        swipeRefreshLayout = findViewById(R.id.swipe_noticia_layout);
     }
 }

@@ -1,5 +1,6 @@
 package br.com.marcelo.moedeira.app;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,13 +17,19 @@ import br.com.marcelo.moedeira.model.Jogo;
 
 public class JogosActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    List<Jogo> jogoList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private List<Jogo> jogoList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogos);
         setupViews();
+
+        swipeRefreshLayout.setOnRefreshListener(()->{
+            updateNews();
+            swipeRefreshLayout.setRefreshing(false);
+        });
 
         for(int i = 0; i < 5; i++){
             Jogo p = new Jogo();
@@ -39,5 +46,26 @@ public class JogosActivity extends AppCompatActivity {
 
     private void setupViews() {
         recyclerView = findViewById(R.id.rv_jogos);
+        swipeRefreshLayout = findViewById(R.id.swipe_jogos_layout);
+    }
+
+    private void updateNews() {
+        /*moedeiroService = apiService.getMoedaService();
+        Call<Service> noticias = moedeiroService.getNoticias();
+        noticias.enqueue(new Callback<Service>() {
+            @Override
+            public void onResponse(Call<Service> call, Response<Service> response) {
+                List<Noticia> data = response.body().data;
+                adapterNoticias = new NoticiasAdapter(data, context);
+                recyclerView.setAdapter(adapterNoticias);
+                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                recyclerView.setHasFixedSize(true);
+            }
+
+            @Override
+            public void onFailure(Call<Service> call, Throwable t) {
+                Toast.makeText(NoticiasActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 }
