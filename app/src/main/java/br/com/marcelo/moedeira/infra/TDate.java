@@ -1,53 +1,71 @@
 package br.com.marcelo.moedeira.infra;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  * Created by Marcelo on 31/03/2018.
  */
 
-public class TDate extends Date {
+public class TDate{
 
 
-
-    private static final long serialVersionUID = 1L;
     private SimpleDateFormat displayFormat = new SimpleDateFormat("dd-MM-yyyy");
     private SimpleDateFormat dataFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private Calendar calendario;
+    private  Date data;
+    private String[] meses = {"janeiro","fevereiro","março","abril","maio","junho","julho", "agosto","setembro","outubro","novembro", "dezembro"};
 
-    public TDate(int year, int month, int day)
-    {
 
 
-    }
-
-    public TDate(long currDate)
-    {
-        super(currDate);
+    public TDate(Date date) {
+        calendario = Calendar.getInstance();
+        data = date;
+        calendario.setTime(data);
     }
 
     public String displayString()
     {
-        return displayFormat.format(this);
+        return displayFormat.format(this.data);
 
-    } // end displayString()
+    }
 
     public String dataString()
     {
-        return dataFormat.format(this);
+        return dataFormat.format(this.data);
 
-    } // end dataString()
+    }
 
-    //retorna o dia da semana dada uma data
-    public String retornarDiaSemana(int ano, int mes, int dia)
+    public int getDia(){
+        return  this.calendario.get(calendario.DATE);
+    }
+
+    public int getMes(){
+        return  this.calendario.get(calendario.MONTH);
+    }
+
+    public int getAno(){
+        return  this.calendario.get(calendario.YEAR);
+    }
+
+    public String getDataFormatWeb(){
+
+       return  retornarDiaSemana()+", "+ TString.strPad(""+getDia(),'0',2,1)+" de "+ getMesString(getMes());
+    }
+
+    public String retornarDiaSemana()
     {
-
-        Calendar calendario = new GregorianCalendar(ano, mes - 1, dia);
         int diaSemana = calendario.get(Calendar.DAY_OF_WEEK);
 
         return pesquisarDiaSemana(diaSemana);
+    }
+
+    public String getMesString(int mes){
+        return meses[mes];
     }
 
     //faz a pesquisa, dado um inteiro de 1 a 7

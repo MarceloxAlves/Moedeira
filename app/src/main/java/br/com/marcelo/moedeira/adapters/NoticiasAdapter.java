@@ -16,6 +16,7 @@ import java.util.List;
 
 import br.com.marcelo.moedeira.R;
 import br.com.marcelo.moedeira.infra.APIService;
+import br.com.marcelo.moedeira.infra.TDate;
 import br.com.marcelo.moedeira.model.Noticia;
 
 /**
@@ -48,6 +49,8 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
         Picasso.with(context).load(APIService.BASE_URL + noticia.getImagem()).into(holder.mNoticiaImage);
         holder.mDesc.setText(noticia.getResumo());
         holder.mTituto.setText(noticia.getTitulo());
+        TDate tDate = new TDate(noticia.getDateInc());
+        holder.mData.setText(tDate.getDataFormatWeb());
         holder.mShareNoticia.setOnClickListener(v->{
             compartilharNoticia(noticia);
         });
@@ -63,7 +66,8 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
 
     public class NoticiasViewHolder extends RecyclerView.ViewHolder{
         ImageView mNoticiaImage, mShareNoticia;
-        TextView mTituto, mDesc;
+        TextView mTituto, mDesc,mData;
+
 
         public NoticiasViewHolder(View itemView) {
             super(itemView);
@@ -71,6 +75,7 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
             mTituto = itemView.findViewById(R.id.titulo_noticia);
             mDesc = itemView.findViewById(R.id.desc_noticia);
             mShareNoticia = itemView.findViewById(R.id.share_noticia);
+            mData = itemView.findViewById(R.id.data_topo);
         }
     }
 

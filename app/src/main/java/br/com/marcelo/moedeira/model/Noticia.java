@@ -3,7 +3,8 @@ package br.com.marcelo.moedeira.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
-import java.util.List;
+
+import br.com.marcelo.moedeira.infra.TDate;
 
 /**
  * Created by jesus on 27/03/2018.
