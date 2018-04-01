@@ -31,23 +31,28 @@
                 android:src="@drawable/star_empty_icon"
                 android:layout_alignParentEnd="true"
                 android:layout_margin="10dp"/>
-            <TextView
-                android:layout_marginStart="10dp"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/titulo_noticia"
-                android:layout_marginBottom="10dp"
-                android:text="Titulo"
-                android:layout_above="@+id/desc_noticia"/>
+                android:orientation="vertical"
+                android:background="@color/transparente"
+                android:layout_above="@+id/linear_botom">
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titulo_noticia"
+                    android:layout_marginBottom="10dp"
+                    android:text="Titulo"/>
 
-            <TextView
-                android:layout_marginStart="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/desc_noticia"
-                android:layout_marginBottom="10dp"
-                android:text="@string/exemplo_text"
-                android:layout_above="@+id/linear_botom"/>
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/desc_noticia"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/exemplo_text"/>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
