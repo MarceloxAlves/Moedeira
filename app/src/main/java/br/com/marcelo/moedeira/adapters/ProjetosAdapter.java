@@ -9,9 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import br.com.marcelo.moedeira.R;
+import br.com.marcelo.moedeira.infra.APIService;
 import br.com.marcelo.moedeira.model.Projeto;
 
 public class ProjetosAdapter extends RecyclerView.Adapter<ProjetosAdapter.ViewHolder> {
@@ -19,7 +22,7 @@ public class ProjetosAdapter extends RecyclerView.Adapter<ProjetosAdapter.ViewHo
     private Context context;
     private List<Projeto> projetos;
 
-    public ProjetosAdapter(Context context, List<Projeto> projetos) {
+    public ProjetosAdapter(List<Projeto> projetos, Context context) {
         this.context = context;
         this.projetos = projetos;
     }
@@ -37,7 +40,7 @@ public class ProjetosAdapter extends RecyclerView.Adapter<ProjetosAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         final Projeto projeto = projetos.get(position);
-
+        Picasso.with(context).load(APIService.BASE_URL + projeto.getImagem()).into(holder.imageViewProjeto);
         holder.textViewTitulo.setText(projeto.getNome());
         holder.textViewDescricao.setText(projeto.getDescricao());
 

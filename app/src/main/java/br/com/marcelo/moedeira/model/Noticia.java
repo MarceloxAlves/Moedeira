@@ -4,8 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 
-import br.com.marcelo.moedeira.infra.TDate;
-
 /**
  * Created by jesus on 27/03/2018.
  */

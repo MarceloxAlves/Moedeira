@@ -10,7 +10,7 @@ public class APIService {
 
     public static String TAG = APIService.class.getSimpleName();
 
-    public static final String BASE_URL = "http://10.0.0.111/formcidadaos/";
+    public static final String BASE_URL = "https://labiras.cc/formandocidadaos/";
 
     private Retrofit retrofit;
 

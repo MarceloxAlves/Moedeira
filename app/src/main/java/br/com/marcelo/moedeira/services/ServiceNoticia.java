@@ -1,11 +1,13 @@
-package br.com.marcelo.moedeira.model;
+package br.com.marcelo.moedeira.services;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-import java.util.Map;
 
-public class Service {
+import br.com.marcelo.moedeira.model.Noticia;
+import br.com.marcelo.moedeira.model.Projeto;
+
+public class ServiceNoticia {
 
     @SerializedName("status")
    public  String status;

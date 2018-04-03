@@ -45,8 +45,9 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     @Override
     public void onBindViewHolder(NoticiasViewHolder holder, int position) {
         Noticia noticia = listNoticias.get(position);
-
-        Picasso.with(context).load(APIService.BASE_URL + noticia.getImagem()).into(holder.mNoticiaImage);
+        String img  =  APIService.BASE_URL + noticia.getImagem();
+            img.replace("\\","");
+        Picasso.with(context).load(img).into(holder.mNoticiaImage);
 
         String descricao = noticia.getResumo().length() > 120 ?  noticia.getResumo().substring(0,120) : noticia.getResumo();
 
@@ -87,7 +88,8 @@ public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.Notici
     private void compartilharNoticia(Noticia noticia) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, APIService.BASE_URL+"?p=noticia-detalhe&q="+noticia.getId());
+        //sendIntent.putExtra(Intent.EXTRA_TEXT, APIService.BASE_URL+"?p=noticia-detalhe&q="+noticia.getId());
+        sendIntent.putExtra(Intent.EXTRA_TEXT, APIService.BASE_URL + noticia.getImagem());
         sendIntent.setType("text/plain");
         context.startActivity(sendIntent);
     }

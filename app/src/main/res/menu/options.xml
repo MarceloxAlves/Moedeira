@@ -10,7 +10,7 @@
             android:id="@+id/noticias"/>
         <item
             android:icon="@drawable/project_icon"
-            android:title="projetos"
+            android:title="Projetos"
             android:id="@+id/projetos"/>
         <item
             android:icon="@drawable/artigo_icon"
