@@ -26,9 +26,10 @@
             android:name=".app.JogosActivity"
             android:label="Jogos"
             android:parentActivityName=".app.MainActivity" />
-        <activity android:name=".app.CursoActivity"
+        <activity
+            android:name=".app.CursoActivity"
             android:label="Cursos"
-            android:parentActivityName=".app.MainActivity"  />
+            android:parentActivityName=".app.MainActivity" />
         <activity
             android:name=".app.ArtigosActivity"
             android:label="Artigos"
@@ -36,12 +37,15 @@
         <activity
             android:name=".app.ProjetosActivity"
             android:label="Projetos"
-            android:parentActivityName=".app.MainActivity"  />
-        <activity android:name=".app.SobreActivity"
             android:parentActivityName=".app.MainActivity" />
-        <activity android:name=".app.NoticiasActivity"
+        <activity
+            android:name=".app.SobreActivity"
+            android:parentActivityName=".app.MainActivity" />
+        <activity
+            android:name=".app.NoticiasActivity"
             android:label="Noticias"
             android:parentActivityName=".app.MainActivity" />
+        <activity android:name=".app.ItemNoticiaViewActivity"></activity>
     </application>
 
 </manifest>
